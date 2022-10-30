@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+
+  nats:
+    container_name: nats
+    image: nats:2.9-alpine
+    ports:
+      - "4222:4222"
+    command: "--http_port 8222"
+    networks: ["nats"]
+
+  nats-js:
+    container_name: nats-js
+    image: nats:2.9-alpine
+    ports:
+      - "4223:4222"
+    command: "-js --http_port 8222"
+    networks: ["nats"]
+
+networks:
+  nats:
+    name: nats
