@@ -12,10 +12,6 @@ import (
 )
 
 const (
-	NATS_URL = "localhost:4223"
-)
-
-const (
 	StreamName     = "REVIEWS"
 	StreamSubjects = "REVIEWS.*"
 
@@ -64,7 +60,7 @@ func main() {
 
 func JetStreamInit() (nats.JetStreamContext, error) {
 	// Connect to NATS
-	nc, err := nats.Connect(NATS_URL)
+	nc, err := nats.Connect(nats.DefaultURL)
 	if err != nil {
 		return nil, err
 	}

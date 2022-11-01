@@ -10,15 +10,11 @@ import (
 	"github.com/nats-io/nats.go"
 )
 
-const (
-	NATS_URL = "localhost:4223"
-)
-
 func main() {
 
 	url := os.Getenv("NATS_URL")
 	if url == "" {
-		url = NATS_URL
+		url = nats.DefaultURL
 	}
 
 	nc, _ := nats.Connect(url)
